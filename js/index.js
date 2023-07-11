@@ -121,3 +121,67 @@ document.getElementById('btnZoomInText').onclick = function () {
 
     changeFontSize('textVD2', 10);
 }
+
+/** ===== Vòng lặp While
+ * Ví dụ 3: Tính tổng từ 1 cho đến sô người dùng nhập vào
+ */
+
+// input : soN người dùng nhập vào : Number
+
+
+document.getElementById('btnTinhTong').onclick = function () {
+
+    var soN = Number(document.getElementById('isoN').value);
+    //output : Tong : Number
+    var tong = 0;
+    var soHang = 1;
+    while (soHang <= soN) { // Đúng thì lặp, sai thì dừng
+
+        tong = tong + soHang;
+
+        soHang++; // soHang = soHang + 1;
+    }
+
+    document.getElementById('ketQua5').innerHTML = 'Tổng của ' + soN + ' là : ' + tong;
+}
+
+/**
+ * Ví dụ 4: Cho phép người dùng nhập vào 1 giá trị. In ra số div tương ứng
+        với giá trị đó
+ */
+
+document.getElementById('btnInDiv').onclick = function(){
+
+    // input : iSo2 : Number : VD :2
+    var iSo2 = Number(document.getElementById('iSo2').value);
+    // output : html : Tring <div> Div1 </div> <div> Div2 <div>
+    var html = '';
+    var soLan = 1 ;
+
+    while( soLan <= iSo2){
+
+       var inDiv = '<div class="alert alert-success mt-2"> Cyber' + soLan +'</div>';
+
+       html += inDiv; // html = html + inDiv
+
+       // B4: Thay đổi giá trị ban đầu
+        soLan ++;
+    }
+
+    document.getElementById('ketQua6').innerHTML = html;
+}
+
+/**
+ *  Ví dụ 5: Cho phép người dùng nhập vào 1 số. Cho biết số đó có phải là số
+        nguyên tố hay không?
+        -- Số nguyên tố là số chia hết cho chính nó và có hai ước
+ */
+
+document.getElementById('btnKiemTra').onclick = function(){
+
+    // input : iSo : Number
+    var iSo3 = Number(document.getElementById('iSo3').value);
+
+    // output : So : Number
+
+}

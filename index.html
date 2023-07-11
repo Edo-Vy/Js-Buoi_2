@@ -23,7 +23,7 @@
     />
   </head>
   <body>
-    <div class="container mt-2 mb-4">
+    <div class="container mt-2 mb-4 mb-5">
       <h3>
         Ví dụ 1: Thay đổi nội dung 3 đoạn text và gán màu sắc cho 3 đoạn nội
         dung khác nhau
@@ -34,7 +34,7 @@
 
       <hr />
       <h3>
-        Ví dụ 2: Xây dưng chức năng để tăng giảm kich thước của ngôi nhà và đoạn
+        Ví dụ 2: Xây dưng chức năng để tăng giảm kích thước của ngôi nhà và đoạn
         văn bản sau
       </h3>
       <div class="form-group">
@@ -53,6 +53,47 @@
 
         <button class="btn btn-success mt-2" id="btnZoomInText">+</button>
       </div>
+      <hr />
+      <h3>Ví dụ 3: Tính tổng từ 1 cho đến sô người dùng nhập vào</h3>
+      <p class="alert alert-warning">
+        VD : Nhập vào 5 <br />
+        Tính : 1 + 2 + 3 + 4 + 5
+      </p>
+      <div class="form-group">
+        <p>Nhập vào 1 số</p>
+        <input class="form-control" id="isoN" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success" id="btnTinhTong">Tính Tổng</button>
+      </div>
+      <div class="alert alert-success" id="ketQua5"></div>
+      <hr />
+
+      <h3>
+        Ví dụ 4: Cho phép người dùng nhập vào 1 giá trị. In ra số div tương ứng
+        với giá trị đó
+      </h3>
+      <div class="form-group">
+        <p>Nhập vào 1 số</p>
+        <input class="form-control" id="iSo2" />
+      </div>
+      <div class="from-group">
+        <button class="btn btn-success" id="btnInDiv">In Div</button>
+      </div>
+      <div class="mt-2" id="ketQua6" style="border: 1px solid orange"></div>
+      <hr />
+      <h3>
+        Ví dụ 5: Cho phép người dùng nhập vào 1 số. Cho biết số đó có phải là số
+        nguyên tố hay không
+      </h3>
+      <div class="form-group">
+        <p>Nhập vào 1 số</p>
+        <input class="form-control" id="iSo3"/>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success" id="btnKiemTra"> Kiểm Tra</button>
+      </div>
+      <div class="alert alert-success" id="ketQua7"></div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
