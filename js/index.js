@@ -150,22 +150,22 @@ document.getElementById('btnTinhTong').onclick = function () {
         với giá trị đó
  */
 
-document.getElementById('btnInDiv').onclick = function(){
+document.getElementById('btnInDiv').onclick = function () {
 
     // input : iSo2 : Number : VD :2
     var iSo2 = Number(document.getElementById('iSo2').value);
     // output : html : Tring <div> Div1 </div> <div> Div2 <div>
     var html = '';
-    var soLan = 1 ;
+    var soLan = 1;
 
-    while( soLan <= iSo2){
+    while (soLan <= iSo2) {
 
-       var inDiv = '<div class="alert alert-success mt-2"> Cyber' + soLan +'</div>';
+        var inDiv = '<div class="alert alert-success mt-2"> Cyber' + soLan + '</div>';
 
-       html += inDiv; // html = html + inDiv
+        html += inDiv; // html = html + inDiv
 
-       // B4: Thay đổi giá trị ban đầu
-        soLan ++;
+        // B4: Thay đổi giá trị ban đầu
+        soLan++;
     }
 
     document.getElementById('ketQua6').innerHTML = html;
@@ -177,11 +177,68 @@ document.getElementById('btnInDiv').onclick = function(){
         -- Số nguyên tố là số chia hết cho chính nó và có hai ước
  */
 
-document.getElementById('btnKiemTra').onclick = function(){
+// document.getElementById('btnKiemTra').onclick = function(){
+
+//     // input : iSo : Number
+//     var iSo3 = Number(document.getElementById('iSo3').value);
+
+//     // output : ketQua : String ( iSo3 có phải là số nguyên tố)
+
+//     var ketQua = '';
+//     // B1: Giá trị bắt đầu
+//     var dem = 0;
+//     var uoc = 1; // bắt đầu ước là số 1 
+
+//     while( uoc <= iSo3){ //B2: Xác định điều kiện lặp
+//         //B3: Thực thi khối lệnh
+//         if( iSo3 % uoc == 0){ // Nếu chia hết thì tăng biến đếm
+
+//             dem ++;
+//         }
+//         // B4: Thay đổi giá trị ban đầu
+//         uoc ++;
+//     }
+
+//      if(dem == 2){
+
+//         ketQua = iSo3 +' là số nguyên tố!';
+//      } else{
+//          ketQua = iSo3 + ' không phải là số nguyên tố!';
+//      }
+
+//      document.getElementById('ketQua7').innerHTML = ketQua;
+// }
+
+//===== Cách 2 : tối ưu, tiết kiệm tài nguyên
+document.getElementById('btnKiemTra').onclick = function () {
 
     // input : iSo : Number
     var iSo3 = Number(document.getElementById('iSo3').value);
 
-    // output : So : Number
+    // output : ketQua : String ( iSo3 có phải là số nguyên tố)
 
+    var ketQua = '';
+    //B1: Giá trị bắt đầu
+    var kiemTraSoNT = true; // Kỹ thuật đặt cờ hiệu ( lính canh).
+    var uoc = 2;
+
+    //B2: Điều kiện lặp
+    while (uoc <= iSo3 / 2) { // uoc <= Math.sqrt(iSo3) : ước : căn bậc 2 => tối ưu hơn +1
+
+        // B3: Xử lý kiểm tra ước
+        if (iSo3 % uoc === 0) { // Nếu có 1 trường hợp xảy ra => ko còn phải là số nguyên tố
+
+            kiemTraSoNT = false;
+            break; // Thoát ra khỏi vòng lặp ngay lập tức => ko cần ktra thêm
+        }
+        // B4: Thay đổi giá trị ban đầu
+        uoc++;
+    }
+    if (kiemTraSoNT && iSo3 != 1) {
+
+        ketQua = iSo3 + ' là số nguyên tố!';
+    } else {
+        ketQua = iSo3 + ' không phải là số nguyên tố !'
+    }
+    document.getElementById('ketQua7').innerHTML = ketQua;
 }
