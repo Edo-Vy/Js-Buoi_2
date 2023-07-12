@@ -242,3 +242,146 @@ document.getElementById('btnKiemTra').onclick = function () {
     }
     document.getElementById('ketQua7').innerHTML = ketQua;
 }
+
+/** 
+ * Ví dụ 6: Cho phép người dùng nhập vào 1 số. Tính tổng các số chẵn từ 2 -> số đó ( hoặc nhỏ hơn 1 đơn vị)
+ * 
+*/
+document.getElementById('btnTinh').onclick = function () {
+
+    var iSo4 = Number(document.getElementById('iSo4').value);
+
+    var tong = 0;
+    //B1: Giá trị bắt đầu
+    var soHang = 2; // số chẵn bắt đầu
+    while (soHang <= iSo4) { // B2: Xác định điều kiện lặp
+
+        //B3: Thực thi khối lệnh
+        tong += soHang; // tong = tong + soHang;
+        //B4: Thay đổi giá trị
+
+        soHang += 2; // soHang = soHang + 2;
+
+    }
+
+    document.getElementById('ketQua8').innerHTML = 'Tổng ' + iSo4 + ' là: ' + tong;
+}
+
+/**
+ *  Ví dụ 7: Cho phép người dùng nhập vào 1 số. In ra số ngôi sao tương ứng
+ */
+
+document.getElementById('InNgoiSao').onclick = function () {
+
+    var iSo5 = Number(document.getElementById('iSo5').value);
+    var html = '';
+    //B1: Giá trị bắt đầu
+    // var soSao = 1;
+    //=== Cách 1
+    // while (soSao <= iSo5){ //B2: Xác định điều kiện lặp
+
+    //     //B3: Thực thi khối lệnh
+    //    var tagSao = '<i class="fa fa-star text-warning"></i>';
+    //    html += tagSao;
+    //     //B4: Thay đổi giá trị
+    //    soSao ++;
+    // }
+
+    //==== Cách 2
+    for (var soSao = 1; soSao <= iSo5; soSao++) {
+
+        var tagSao = '<i class="fa fa-star text-warning"></i>';
+
+        html += tagSao;
+    }
+    // In output ra giao diện
+    document.getElementById('ketQua9').innerHTML = html;
+
+}
+
+/**
+ * Bài tập: Cho phép người dùng nhập vào số hàng và số cột. In ra số sao tương ứng
+ */
+// ===== Cách 1
+// document.getElementById('btnInSao').onclick = function () {
+
+//     var soHang = Number(document.getElementById('iHang').value);
+//     var soCot = Number(document.getElementById('iCot').value);
+
+//     var output = '';
+//     for (var soLanHang = 1; soLanHang <= soHang; soLanHang++) {
+//         // In ra 1 hàng sao trước 
+//         //B1: Tạo ra biến số Lần
+//         // B2: Điều kiện lặp
+//         for (var soLan = 1; soLan <= soCot; soLan++) {
+
+//             var tagSao = '<i class="fa fa-star text-warning"></i>';
+//             output += tagSao;
+
+//         }
+//         output += '<br/>';
+//     }
+//     document.getElementById('ketQua10').innerHTML = output;
+// }
+//====== Cách 2
+document.getElementById('btnInSao').onclick = function () {
+
+    var soHang = Number(document.getElementById('iHang').value);
+    var soCot = Number(document.getElementById('iCot').value);
+
+    var output = '';
+    for (var soLanHang = 1; soLanHang <= soHang; soLanHang++) {
+
+        var hangSao = inHangSao(soCot);
+        output += hangSao;
+        output += '<br/>';
+    }
+    document.getElementById('ketQua10').innerHTML = output;
+}
+// In hàng sao
+function inHangSao(soLan) { // soLan = 5 == soCot
+    var output = '';
+    for (i = 1; i <= soLan; i++) {
+
+        output += '<i class="fa fa-star text-warning"></i>';
+
+    }
+    return output; // output
+}
+
+/** 
+ * Bài tập: Cho phép người dùng nhập vào 1 số. In ra các số nguyên tố từ 2
+        đến nhỏ hơn hoặc bằng số đó
+*/
+document.getElementById('inSoNT').onclick = function () {
+
+    // input : number
+    var soNT = Number(document.getElementById('iSo6').value);
+
+    //output : 2 3 5 7 : String
+    var ketQua = '';
+    // Bước 1:
+    for (var i = 2; i <= soNT; i++) { // i: index: số TT
+        // B3: Chạy qua 1 con số sẽ kiểm tra số đó có phải số NT hay không, nếu đúng thì mới + vào output
+        var kiemTra = KiemTraNT(i);
+        if (kiemTra) {
+
+            ketQua += i + ' ';
+        }
+        document.getElementById('ketQua11').innerHTML = ' Số nguyên tố của ' + soNT + ' là: ' + ketQua;
+    }
+}
+// Bài toán kiểm tra số nguyên tố
+function KiemTraNT(iSo) {
+
+    var output = true;
+    for (var uoc = 2; uoc <= Math.sqrt(iSo); uoc++) { // Math.sqrt(iSo) : căn bậc 2
+
+        if (iSo % uoc == 0) {
+            output = false;
+            break;
+        }
+    }
+    return output; // true | false
+
+}
